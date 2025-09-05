@@ -3,7 +3,7 @@ function playSound (idAudioElement) {
 }
 
 
-const keyList = document.querySelectorAll('.tecla');
+const keyList = document.querySelectorAll('.key');
 
 console.log(keyList);
 
@@ -15,11 +15,11 @@ for ( let counter = 0; counter < keyList.length; counter++) {
     
     key = keyList[counter];
     const instrument = key.classList[1];
-    
-    console.log(`#som_${instrument}`);
+
+    console.log(`#sound_${instrument}`);
 
     //Codigo de template text, pra inserir codigos em strings | Utilizando para strings dinamicas
-    const idAudio = `#som_${instrument}`
+    const idAudio = `#sound_${instrument}`
 
     key.onclick = function () {
         playSound(idAudio)
@@ -29,12 +29,12 @@ for ( let counter = 0; counter < keyList.length; counter++) {
         console.log(event)
         
         if ('tab') {
-            key.classList.add('ativa');
+            key.classList.add('active');
         }
         
     };
 
-    key.onkerup = function () {
-        key.classList.remove('ativa');
+    key.onkeyup = function () {
+        key.classList.remove('active');
     };
 }
